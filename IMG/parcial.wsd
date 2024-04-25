@@ -1,0 +1,36 @@
+@startuml
+
+class CategoriaCarro {
+    - int id
+    - String nombre
+    - String descripcion
+}
+
+class Auto {
+    - int id
+    - String marca
+    - String modelo
+    - int año
+    - String color
+    - CategoriaCarro categoriaCarro_id
+}
+
+class AutosPersona {
+    - int id
+    - Auto auto_id
+    - Persona persona_id
+}
+
+class Persona {
+    - int id
+    - String nombre
+    - String apellido
+    - String cedula
+    - String direccion
+    - String telefono
+}
+
+CategoriaCarro "1" -- "*" Auto : tiene
+Auto "1" -- "*" AutosPersona : asociado
+AutosPersona "1" -- "1" Persona : pertenece
+@enduml
